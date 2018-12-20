@@ -11,15 +11,15 @@ import matplotlib.pyplot as plt
 # For example, running this (by clicking run or pressing Shift+Enter) will list the files in the input directory
 
 import os
-print(os.listdir("../input"))
+print(os.listdir("data"))
 
 # Any results you write to the current directory are saved as output.
 
 pd.set_option('display.max_columns', None)
 
-train_data = pd.read_csv("../input/train.csv")
-test_data = pd.read_csv("../input/test.csv")
-sub_data = pd.read_csv("../input/gender_submission.csv")
+train_data = pd.read_csv("data/train.csv")
+test_data = pd.read_csv("data/test.csv")
+#sub_data = pd.read_csv("data/gender_submission.csv")
 
 #train_data.describe()
 #train_data.info()
@@ -179,10 +179,10 @@ y_neigh = logisticClassfier.predict(test_data)
 #y_neigh = model.predict(test_data)
 #y_neigh = (y_neigh > 0.5).astype(int).reshape(test_data.shape[0])
 
-for x in range(1, len(y_neigh)):
-    sub_data.iloc[x, 1] = y_neigh[x]
+#for x in range(1, len(y_neigh)):
+    #sub_data.iloc[x, 1] = y_neigh[x]
 
-sub_data.to_csv('submission.csv', index=False)
+#sub_data.to_csv('submission.csv', index=False)
 
 
 

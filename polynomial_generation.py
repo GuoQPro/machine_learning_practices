@@ -46,13 +46,19 @@ print("The best choice is: {}, and the result is: {}, with r2_score: {}".format(
 
 
 # draw the result
+sns.set()
+
+plt.subplot(211)
 plt.scatter(X, Y, marker = 'x', color = 'red', label = "real value")
 lineX = np.linspace(0, len(data), 1000).reshape(-1, 1)
 polynomialLineX = constructPolynomial(lineX, selectedPower)
 predY = selectedReg.predict(polynomialLineX)
 
-ax = plt.plot(lineX, predY, color = "b", label = "predicted curve")
+plt.plot(lineX, predY, color = "b", label = "predicted curve")
 plt.title("We can predict the future {}".format(selectedPower))
-
 plt.legend()
+
+plt.subplot(212)
+sns.kdeplot(data)
+
 plt.show()
